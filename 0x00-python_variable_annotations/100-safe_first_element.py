@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-
+"""
+Module creates a function that duck-types first element of a sequence.
+"""
 from typing import Sequence, Any, Optional
 
 
