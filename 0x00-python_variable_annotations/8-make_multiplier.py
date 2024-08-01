@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+    This multiplier function multiplies its input by specified factor.
+"""
 
 from typing import Callable
 
