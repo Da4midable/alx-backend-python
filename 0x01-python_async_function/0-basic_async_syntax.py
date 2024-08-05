@@ -22,7 +22,7 @@ async def wait_random(max_delay: float = 10) -> float:
         float: The actual time delayed, between 0 and max_delay seconds.
 
     This function generates a random delay between 0 and max_delay seconds,
-    waits for that duration asynchronously, and then returns the delay value.
+    waits for that duration asynchronously, and then returns the delay value..
     """
     time_to_wait = random.uniform(0, max_delay)
     await asyncio.sleep(time_to_wait)
