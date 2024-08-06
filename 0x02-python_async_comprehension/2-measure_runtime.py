@@ -30,7 +30,7 @@ async def measure_runtime() -> float:
         asyncio.gather for concurrent execution of coroutines.
     """
     start_time = time.time()
-    tasks = [asyncio.create_task(async_comprehension())
+    tasks: List[asyncio.Task] = [asyncio.create_task(async_comprehension())
                                  for _ in range(4)]
     await asyncio.gather(*tasks)
     end_time = time.time()
