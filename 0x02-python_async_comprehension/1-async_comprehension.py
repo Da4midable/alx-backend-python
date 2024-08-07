@@ -7,13 +7,13 @@ this script. It uses the env command to locate the Python 3 interpreter
 in the user's environment.
 """
 
-from typing import AsyncGenerator
+from typing import List
 import asyncio
 import random
 async_generator = __import__('0-async_generator').async_generator
 
 
-async def async_comprehension() -> AsyncGenerator[float, None]:
+async def async_comprehension() -> List[float]:
     """
     Collects 10 random numbers using async comprehension over async_generator.
 
