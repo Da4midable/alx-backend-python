@@ -9,9 +9,9 @@ in the user's environment.
 
 import asyncio
 import random
+from typing import Generator
 
-
-async def wait_random(max_delay: int = 10) -> float:
+async def wait_random(max_delay: int = 10) -> Generator[float, None, None]:
     """
     Asynchronous coroutine that waits for a random delay and returns it.
 
