@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Module parameterizes a unit test"""
 
+from parameterized import parameterized, parameterized_class
+from typing import Any
 from unittest.mock import patch, Mock
 from utils import access_nested_map, get_json, memoize
 import unittest
-from parameterized import parameterized, parameterized_class
 
 
 class TestAccessNestedMap(unittest.TestCase):
@@ -31,7 +32,7 @@ class TestAccessNestedMap(unittest.TestCase):
 class TestGetJson(unittest.TestCase):
     """an instance that mocks and patches a unittest"""
     @patch('utils.requests.get')
-    def test_get_json(self, mock_get):
+    def test_get_json(self, mock_get) -> Any:
         """method mocks and patches a unittest"""
         test_cases = [
             ("http://example.com", {"payload": True}),
@@ -58,7 +59,7 @@ class TestMemoize(unittest.TestCase):
         def a_property(self):
             return self.a_method()
 
-    def test_memoize(self):
+    def test_memoize(self) -> Any:
         test_obj = self.TestClass()
         with patch.object(test_obj, 'a_method',
                           return_value=42) as mock_method:
