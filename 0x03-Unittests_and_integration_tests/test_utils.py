@@ -2,7 +2,7 @@
 """Module parameterizes a unit test"""
 
 from unittest.mock import patch, Mock
-from utils import access_nested_map, get_json
+from utils import access_nested_map, get_json, memoize
 import unittest
 from parameterized import parameterized, parameterized_class
 
@@ -46,3 +46,24 @@ class TestGetJson(unittest.TestCase):
             mock_get.assert_called_once_with(test_url)
             self.assertEqual(result, test_payload)
             mock_get.reset_mock()
+
+
+class TestMemoize(unittest.TestCase):
+
+    class TestClass:
+        def a_method(self):
+            return 42
+
+        @memoize
+        def a_property(self):
+            return self.a_method()
+
+    def test_memoize(self):
+        test_obj = self.TestClass()
+        with patch.object(test_obj, 'a_method',
+                          return_value=42) as mock_method:
+            result1 = test_obj.a_property
+            result2 = test_obj.a_property
+            self.assertEqual(result1, 42)
+            self.assertEqual(result2, 42)
+            mock_method.assert_called_once()

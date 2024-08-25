@@ -1,4 +1,5 @@
 from typing import Dict
+
 import requests
 
 def get_json(url: str) -> Dict:
